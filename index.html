@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plinko Palace</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="home-page">
+  <main class="home-shell">
+    <header class="topbar">
+      <a class="brand-mark" href="index.html">
+        <span class="brand-led">Plinko</span>
+        <span class="brand-subtitle">Palace</span>
+      </a>
+      <a class="nav-link" href="simulator.html">EV Simulator</a>
+    </header>
+
+    <section class="hero-panel">
+      <div class="hero-text">
+        <p class="eyebrow">Black Table Edition</p>
+        <h1 class="led-title" aria-label="Plinko Palace">
+          <span class="plinko-word" aria-hidden="true">
+            <span class="led-letter p">P</span>
+            <span class="led-letter l">l</span>
+            <span class="led-letter i">i</span>
+            <span class="led-letter n">n</span>
+            <span class="led-letter k">k</span>
+            <span class="led-letter o">o</span>
+          </span>
+          <span class="subtitle-line">Palace</span>
+        </h1>
+        <p class="tagline">Drop a ball, watch the path, and see where the board sends you.</p>
+      </div>
+
+      <div class="control-deck">
+        <div class="stat-card">
+          <span class="stat-label">Balance</span>
+          <strong id="balanceDisplay">$1000.00</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Current Slot</span>
+          <strong id="slotDisplay">Waiting...</strong>
+        </div>
+
+        <div class="field-group">
+          <label for="betInput">Bet Amount</label>
+          <input id="betInput" type="number" min="1" step="1" value="25">
+        </div>
+
+        <button id="dropBtn" type="button">Drop The Ball</button>
+        <p id="resultMessage" class="status-line">Ready for the next drop.</p>
+      </div>
+    </section>
+
+    <section class="board-section">
+      <div class="triangle-frame">
+        <div class="board-header">
+          <p class="board-title">Mini Pascal Board</p>
+          <p class="board-caption">The last slot lights up where the ball lands.</p>
+        </div>
+
+        <div id="triangleBoard" class="triangle-board" aria-label="Plinko board">
+          <div class="triangle-row row-0">
+            <span class="peg" data-row="0" data-col="0"></span>
+          </div>
+          <div class="triangle-row row-1">
+            <span class="peg" data-row="1" data-col="0"></span>
+            <span class="peg" data-row="1" data-col="1"></span>
+          </div>
+          <div class="triangle-row row-2">
+            <span class="peg" data-row="2" data-col="0"></span>
+            <span class="peg" data-row="2" data-col="1"></span>
+            <span class="peg" data-row="2" data-col="2"></span>
+          </div>
+          <div class="triangle-row row-3">
+            <span class="peg" data-row="3" data-col="0"></span>
+            <span class="peg" data-row="3" data-col="1"></span>
+            <span class="peg" data-row="3" data-col="2"></span>
+            <span class="peg" data-row="3" data-col="3"></span>
+          </div>
+          <div class="triangle-row row-4">
+            <span class="peg" data-row="4" data-col="0"></span>
+            <span class="peg" data-row="4" data-col="1"></span>
+            <span class="peg" data-row="4" data-col="2"></span>
+            <span class="peg" data-row="4" data-col="3"></span>
+            <span class="peg" data-row="4" data-col="4"></span>
+          </div>
+          <div class="triangle-row row-5">
+            <span class="peg" data-row="5" data-col="0"></span>
+            <span class="peg" data-row="5" data-col="1"></span>
+            <span class="peg" data-row="5" data-col="2"></span>
+            <span class="peg" data-row="5" data-col="3"></span>
+            <span class="peg" data-row="5" data-col="4"></span>
+            <span class="peg" data-row="5" data-col="5"></span>
+          </div>
+          <div class="triangle-row row-6">
+            <span class="peg" data-row="6" data-col="0"></span>
+            <span class="peg" data-row="6" data-col="1"></span>
+            <span class="peg" data-row="6" data-col="2"></span>
+            <span class="peg" data-row="6" data-col="3"></span>
+            <span class="peg" data-row="6" data-col="4"></span>
+            <span class="peg" data-row="6" data-col="5"></span>
+            <span class="peg" data-row="6" data-col="6"></span>
+          </div>
+          <div class="slot-row" aria-label="Final slots">
+            <button class="slot-pocket" data-slot="0" type="button"><span>x5</span></button>
+            <button class="slot-pocket" data-slot="1" type="button"><span>x3</span></button>
+            <button class="slot-pocket" data-slot="2" type="button"><span>x1.5</span></button>
+            <button class="slot-pocket" data-slot="3" type="button"><span>x1</span></button>
+            <button class="slot-pocket" data-slot="4" type="button"><span>x1.5</span></button>
+            <button class="slot-pocket" data-slot="5" type="button"><span>x3</span></button>
+            <button class="slot-pocket" data-slot="6" type="button"><span>x5</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

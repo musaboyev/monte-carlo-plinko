@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plinko EV Simulator</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="simulator-page">
+  
+  <main class="simulator-shell">
+    <header class="topbar">
+      <a class="brand-mark" href="index.html">
+        <span class="brand-led">Plinko</span>
+        <span class="brand-subtitle">Palace</span>
+      </a>
+      <a class="nav-link" href="index.html">Back To Game</a>
+    </header>
+
+    <section class="casino-stage">
+      <div class="hero-copy">
+        <p class="eyebrow">Live Casino Mode</p>
+        <h1 class="led-title" aria-label="Plinko EV Simulator">
+          <span class="plinko-word" aria-hidden="true">
+            <span class="led-letter p">P</span>
+            <span class="led-letter l">l</span>
+            <span class="led-letter i">i</span>
+            <span class="led-letter n">n</span>
+            <span class="led-letter k">k</span>
+            <span class="led-letter o">o</span>
+          </span>
+          <span class="subtitle-line">EV Simulator</span>
+        </h1>
+        <p class="tagline">Run the numbers. Check if they are tricking you.</p>
+      </div>
+
+      <div class="field-group">
+        <label for="betInput">Enter your bet amount</label>
+        <input id="betInput" type="number" min="1" step="1" value="25">
+      </div>
+
+      <div class="field-group">
+        <label for="simInput">How many simulations do you want?</label>
+        <input id="simInput" type="number" min="1" step="1" value="100">
+      </div>
+
+      <button id="startBtn" type="button">Run Simulation</button>
+      <button class="hidden" id="stopBtn" type="button">Running...</button>
+      <p id="simResult" class="status-line">Choose values and run a batch to estimate the average return.</p>
+    </section>
+
+    <section class="simResult"> 
+      <canvas id="simChart"></canvas>
+
+    </section>
+    
+  <section class="blog-post">
+   <h2>Why this game is unfair</h2>
+
+    <p>
+    At first glance, Plinko looks completely random. The ball bounces left or right,
+    lands in a slot, and sometimes pays well. But underneath that randomness is a
+    precise mathematical structure designed so that the house wins in the long run.
+    </p>
+
+   <h3>Binomial distribution on a Plinko board</h3>
+    <div class="video-container">
+      <iframe 
+       src="https://www.youtube.com/embed/6YzrVUVO9M0"
+       title="YouTube video"
+       frameborder="0"
+       allowfullscreen>
+      </iframe>
+    </div>
+    <p>
+    Each time the ball hits a peg, it has two possible directions: left or right.
+    If the board is fair, each happens with probability 50%.
+    After several rows, the final slot depends on how many times the ball moved right.
+    This follows a binomial distribution, which means middle slots are much more likely
+    than the rare edge slots.
+    </p>
+
+   <h3>Expected Value (EV)</h3>
+   <div class="video-container">
+      <iframe 
+       src="https://www.youtube.com/embed/KLs_7b7SKi4"
+       title="YouTube video"
+       frameborder="0"
+       allowfullscreen>
+      </iframe>
+    </div>
+    <p>
+    The Expected Value tells us the average result per game over the long run.
+    It is found by multiplying each payout by its probability and adding everything together.
+    In this game, the low-paying middle slots happen often, while the high-paying edge slots
+    happen rarely. That makes the average result negative for the player.
+    </p>
+
+   <h3>Monte Carlo simulation</h3>
+    <p>
+    A Monte Carlo simulation runs the game many times and tracks the average outcome.
+    In the graph above, the blue line shows the simulated average profit per game,
+    and the red dashed line shows the theoretical EV. As the number of simulations increases,
+    the blue line moves closer to the red line.
+    </p>
+
+   <h3>Why the house wins</h3>
+    <p>
+    In the short run, anything can happen. A player might get lucky and win.
+    But in the long run, randomness averages out and results converge to the Expected Value.
+    That is why the game may feel fair at first, but mathematically it is not:
+    the house edge guarantees an average loss over time.
+    </p>
+</section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
